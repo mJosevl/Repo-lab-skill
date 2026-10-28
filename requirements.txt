@@ -1,0 +1,6 @@
+google-genai==2.29.0
+python-dotenv==1.2.4
+httpx==0.28.1
+requests
+cprint
+pytest
