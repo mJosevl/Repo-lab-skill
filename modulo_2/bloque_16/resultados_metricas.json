@@ -21,19 +21,19 @@
     "fecha": "2026-10-30",
     "consulta": "¿Cuál es la Primera Ley de la Robótica de Asimov?",
     "referencia": "Un robot no debe dañar a un ser humano ni permitir que sufra daño.",
-    "respuesta": "La Primera Ley de la Robótica de Asimov establece que un robot no debe dañar a un ser humano o, por su inacción, permitir que un ser humano sufra daño.",
-    "precision": 0.43,
+    "respuesta": "Un robot no debe dañar a un ser humano o, por su inacción, permitir que un ser humano sufra daño.",
+    "precision": 0.65,
     "cobertura": 0.93,
-    "f1": 0.59
+    "f1": 0.76
   },
   {
     "fecha": "2026-10-30",
     "consulta": "¿Qué es la psicohistoria en la saga Fundación?",
     "referencia": "La psicohistoria es una ciencia que predice el comportamiento de grandes masas.",
-    "respuesta": "La psicohistoria es una ciencia ficticia que combina historia, sociología y matemáticas para predecir el comportamiento futuro de grandes masas humanas.",
-    "precision": 0.52,
-    "cobertura": 0.92,
-    "f1": 0.67
+    "respuesta": "La psicohistoria en la saga Fundación es una ciencia ficticia que combina la historia, la sociología y las matemáticas para predecir el comportamiento a gran escala de las masas y guiar el futuro de la humanidad.",
+    "precision": 0.28,
+    "cobertura": 0.83,
+    "f1": 0.42
   },
   {
     "fecha": "2026-10-30",
