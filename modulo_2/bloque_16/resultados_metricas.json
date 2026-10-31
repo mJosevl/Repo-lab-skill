@@ -1,0 +1,47 @@
+[
+  {
+    "fecha": "2026-10-30",
+    "consulta": "¿Quién escribió Yo, Robot?",
+    "referencia": "Isaac Asimov escribió Yo, Robot.",
+    "respuesta": "Yo, Robot fue escrita por Isaac Asimov.",
+    "precision": 0.57,
+    "cobertura": 0.8,
+    "f1": 0.67
+  },
+  {
+    "fecha": "2026-10-30",
+    "consulta": "¿En qué año se publicó Yo, Robot?",
+    "referencia": "Yo, Robot se publicó en 1950.",
+    "respuesta": "Yo, Robot se publicó en el año 1950.",
+    "precision": 0.75,
+    "cobertura": 1.0,
+    "f1": 0.86
+  },
+  {
+    "fecha": "2026-10-30",
+    "consulta": "¿Cuál es la Primera Ley de la Robótica de Asimov?",
+    "referencia": "Un robot no debe dañar a un ser humano ni permitir que sufra daño.",
+    "respuesta": "La Primera Ley de la Robótica de Asimov establece que un robot no debe dañar a un ser humano o, por su inacción, permitir que un ser humano sufra daño.",
+    "precision": 0.43,
+    "cobertura": 0.93,
+    "f1": 0.59
+  },
+  {
+    "fecha": "2026-10-30",
+    "consulta": "¿Qué es la psicohistoria en la saga Fundación?",
+    "referencia": "La psicohistoria es una ciencia que predice el comportamiento de grandes masas.",
+    "respuesta": "La psicohistoria es una ciencia ficticia que combina historia, sociología y matemáticas para predecir el comportamiento futuro de grandes masas humanas.",
+    "precision": 0.52,
+    "cobertura": 0.92,
+    "f1": 0.67
+  },
+  {
+    "fecha": "2026-10-30",
+    "consulta": "¿Cómo se llama la robopsicóloga de los cuentos de robots de Asimov?",
+    "referencia": "La robopsicóloga se llama Susan Calvin.",
+    "respuesta": "La robopsicóloga de los cuentos de Isaac Asimov se llama Susan Calvin.",
+    "precision": 0.5,
+    "cobertura": 1.0,
+    "f1": 0.67
+  }
+]
