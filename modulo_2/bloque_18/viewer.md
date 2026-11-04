@@ -1,0 +1,3 @@
+Generación palabra por palabra: La IA redacta respondiendo al contexto inmediato, eligiendo el siguiente fragmento según la conversación.
+Uso de fragmentos: Las unidades de texto que procesa no siempre son palabras completas, sino sílabas, partes de palabras o signos de puntuación.
+Preparación inicial: El sistema divide tu mensaje en todos esos pequeños pedacitos antes de empezar a procesarlo y responder.
