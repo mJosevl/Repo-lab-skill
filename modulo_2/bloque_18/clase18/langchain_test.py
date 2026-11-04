@@ -2,7 +2,10 @@ from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 from cprint import cprint
-
+from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
+...
+load_dotenv()
 # Definición de la plantilla
 # Plantilla para comparar probabilidades de victoria entre dos tenistas en una superficie específica
 plantilla = PromptTemplate.from_template(

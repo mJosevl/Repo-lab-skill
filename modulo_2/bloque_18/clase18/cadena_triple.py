@@ -4,7 +4,10 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 from cprint import cprint
-
+from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
+...
+load_dotenv()
 modelo = ChatGoogleGenerativeAI(model="gemini-3.5-flash-lite")
 
 plantilla_extraccion = PromptTemplate.from_template(
