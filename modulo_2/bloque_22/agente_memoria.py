@@ -34,6 +34,11 @@ def obtener_historial(session_id: str) -> InMemoryChatMessageHistory:
     return historiales[session_id]
 
 
+def cerrar_sesion(session_id: str) -> None:
+    """Borra el historial al terminar la conversación (no falla si no existe)."""
+    historiales.pop(session_id, None)
+
+
 def normalizar_respuesta(resultado: dict) -> dict:
     """Gemini a veces devuelve el texto como lista de bloques
     [{'type': 'text', 'text': ...}]. El historial necesita un mensaje simple:
@@ -77,8 +82,11 @@ if __name__ == "__main__":
     print(r1["output"].content)
 
     # Segunda pregunta: "ese job" solo se entiende gracias a la memoria
+    print("Mensajes en el historial:", len(obtener_historial("operador_turno_noche").messages))
+
     r2 = agente.invoke({"entrada": "¿Y cuál era el Order ID de ese job?"}, sesion)
     print(r2["output"].content)
+    print("Mensajes en el historial:", len(obtener_historial("operador_turno_noche").messages))
 
     # Otra sesión: no recuerda nada
     otra = {"configurable": {"session_id": "operador_turno_dia"}}
