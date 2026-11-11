@@ -1,8 +1,15 @@
 """Pruebas del Bloque 22. Sin modelo real ni API."""
+import pytest
 from langchain_core.runnables import RunnableLambda
+from pydantic import ValidationError
 
 import agente_memoria
-from agente_memoria import con_memoria, normalizar_respuesta, obtener_historial
+from agente_memoria import (
+    cerrar_sesion,
+    con_memoria,
+    normalizar_respuesta,
+    obtener_historial,
+)
 from herramientas import consultar_job, contar_jobs_por_estado
 
 
@@ -48,3 +55,19 @@ def test_la_memoria_crece_dentro_de_una_sesion():
     assert agente.invoke({"entrada": "hola"}, s1)["output"].content == "veo 0"
     assert agente.invoke({"entrada": "otra"}, s1)["output"].content == "veo 2"
     assert agente.invoke({"entrada": "hola"}, s2)["output"].content == "veo 0"
+
+
+def test_pydantic_rechaza_un_tipo_invalido():
+    with pytest.raises(ValidationError):
+        consultar_job.invoke({"nombre_job": "CARGA_INVENTARIO", "incluir_historial": "tal vez"})
+
+
+def test_nombre_explicito_de_la_herramienta():
+    assert consultar_job.name == "consultar_job"
+
+
+def test_cerrar_sesion_borra_el_historial_y_no_falla_dos_veces():
+    obtener_historial("temporal")
+    cerrar_sesion("temporal")
+    cerrar_sesion("temporal")
+    assert "temporal" not in agente_memoria.historiales
