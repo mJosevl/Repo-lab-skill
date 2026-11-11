@@ -35,15 +35,28 @@ def mostrar_traza(resultado: dict) -> None:
         print(f"  {accion.tool}({accion.tool_input}) -> {observacion}")
 
 
+def herramientas_usadas(resultado: dict) -> list[str]:
+    """Nombres de las herramientas que eligió el agente, en orden."""
+    return [accion.tool for accion, _ in resultado.get("intermediate_steps", [])]
+
+
+# Pruebas manuales: (pregunta, herramientas que DEBERÍA usar)
+CASOS = [
+    ("¿Cómo está el job CARGA_INVENTARIO?", ["consultar_estado_job"]),
+    ("Dame el Order ID de REPORTE_VENTAS", ["buscar_order_id"]),
+    ("¿Qué color combina con el rojo?", []),   # no debe usar ninguna
+]
+
+
 if __name__ == "__main__":
     from modelo import crear_modelo
 
-    agente = construir_agente(crear_modelo(), verbose=False)
-    for pregunta in [
-        "¿Cómo está el job CARGA_INVENTARIO?",
-        "Dame el Order ID de REPORTE_VENTAS",
-        "¿Qué color combina con el rojo?",   # fuera de alcance: no debería usar herramientas
-    ]:
-        resultado = agente.invoke({"entrada": pregunta})
+    ejecutor_agente = construir_agente(crear_modelo(), verbose=False)
+    for pregunta, esperadas in CASOS:
+        resultado = ejecutor_agente.invoke({"entrada": pregunta})
+        usadas = herramientas_usadas(resultado)
         print(f"\n{pregunta}\n{resultado['output']}")
         mostrar_traza(resultado)
+        # Se verifica el CAMINO (intermediate_steps), no solo la respuesta
+        assert usadas == esperadas, f"esperaba {esperadas}, usó {usadas}"
+        print("  ✓ eligió bien")

@@ -10,7 +10,12 @@ JOBS = {
 
 
 def _buscar(nombre_job: str):
-    return JOBS.get(nombre_job.strip().upper())
+    """Devuelve el job o None. try/except: el mismo patrón que se usaría
+    con una consulta real a Control-M que puede fallar."""
+    try:
+        return JOBS[nombre_job.strip().upper()]
+    except (KeyError, AttributeError):
+        return None
 
 
 @tool
